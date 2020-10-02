@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -61,5 +62,18 @@ public class RequestController {
         else{
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PutMapping("/{codigo}")
+    public ResponseEntity<Request> update(@RequestBody Request request, @PathVariable int codigo) {
+
+        if(requestRepository.getRequestByCode(codigo) != null) {
+            request.setCod(codigo);
+            request = requestRepository.updateRequest(request);
+            return ResponseEntity.ok(request);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+
     }
 }
