@@ -50,6 +50,7 @@ public class RequestRepository {
         Request aux = getRequestByCode(request.getCod());
 
         if(aux != null){
+            aux.setCliente(request.getCliente());
             aux.setDescription(request.getDescription());
             aux.setValue(request.getValue());
             aux.setDate(LocalDateTime.now());

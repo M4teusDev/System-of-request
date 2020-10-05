@@ -8,6 +8,7 @@ public class Request {
     private double         value;
     private String         description;
     private LocalDateTime  date;
+    private String         cliente; 
 
     public int getCod() {
         return cod;
@@ -40,6 +41,14 @@ public class Request {
     public void setDate(LocalDateTime date) {
         this.date = date;
     }
+
+	public String getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
+	}
     
 }
 
